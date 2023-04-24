@@ -1,0 +1,73 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v2",
+    "title": "USER SERVICE API"
+  },
+  "basePath": "//gorest.co.in/public",
+  "tags": [
+    {
+      "name": "user-service"
+    },
+    {
+      "name": "API for viewing business unit member"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "user-service"
+        ],
+        "summary": "Get all the users",
+        "description": "",
+        "operationId": "searchAllUsers",
+        "produces": [
+          "application/json"
+        ],
+
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/userPojo"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "userPojo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z\\p{N}!@#$%&’*+/=?`{|}~^_-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^([_'|.,()\\p{L}\\p{N}]{1})([_,()'|. \\&\\p{L}\\p{N}-]*$)"
+        },
+        "email": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    }
+  }
+  }
