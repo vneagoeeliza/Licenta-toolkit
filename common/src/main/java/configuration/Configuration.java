@@ -43,7 +43,7 @@ public class Configuration {
     private ClientHttpResponse addRequestId(HttpRequest httpRequest, byte[] bytes, ClientHttpRequestExecution clientHttpRequestExecution) throws IOException {
         HttpRequest authRequest = new HttpRequestWrapper(httpRequest);
         HttpHeaders headers = httpRequest.getHeaders();
-        headers.add("Request-id", "Req-Id" + UUID.randomUUID());
+        headers.add("Request-id", "Req-Id-" + UUID.randomUUID());
         return clientHttpRequestExecution.execute(authRequest, bytes);
     }
 

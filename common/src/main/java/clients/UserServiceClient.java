@@ -18,4 +18,8 @@ public class UserServiceClient {
     public List<UserPojo> getAllUsers() {
         return userServiceApi.searchAllUsers();
     }
+
+    public UserPojo createUser(UserPojo userPojo){
+        return userServiceApi.createUser(userPojo);
+    }
 }
