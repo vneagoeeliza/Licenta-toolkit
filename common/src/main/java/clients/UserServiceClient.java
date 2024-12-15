@@ -12,14 +12,14 @@ public class UserServiceClient {
 
     public UserServiceClient(Configuration config) {
         this.configuration = config;
-        this.userServiceApi = new UserServiceApi(config.getVoConfigApiClient());
+        this.userServiceApi = new UserServiceApi(config.getApiClient());
     }
 
     public List<UserPojo> getAllUsers() {
         return userServiceApi.searchAllUsers();
     }
 
-    public UserPojo createUser(UserPojo userPojo){
+    public UserPojo createUser(UserPojo userPojo) {
         return userServiceApi.createUser(userPojo);
     }
 }

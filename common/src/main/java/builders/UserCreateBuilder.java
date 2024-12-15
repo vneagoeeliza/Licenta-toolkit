@@ -14,18 +14,22 @@ public class UserCreateBuilder implements EntityCreateBuilder<UserPojo> {
         this.configuration = configuration;
         this.userServiceClient = userServiceClient;
     }
+
     public UserCreateBuilder withName(String name) {
         user.setName(name);
         return this;
     }
+
     public UserCreateBuilder withGender(String gender) {
         user.setGender(gender);
         return this;
     }
+
     public UserCreateBuilder withEmail(String email) {
         user.setEmail(email);
         return this;
     }
+
     public UserCreateBuilder withStatus(String status) {
         user.setStatus(status);
         return this;

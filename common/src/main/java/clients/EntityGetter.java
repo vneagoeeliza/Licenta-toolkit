@@ -9,12 +9,12 @@ public class EntityGetter {
     private Configuration configuration;
     private UserServiceClient userServiceClient;
 
-    public EntityGetter(Configuration configuration, UserServiceClient userServiceClient){
+    public EntityGetter(Configuration configuration, UserServiceClient userServiceClient) {
         this.configuration = configuration;
         this.userServiceClient = userServiceClient;
     }
 
-    public List<UserPojo> allUsers(){
+    public List<UserPojo> allUsers() {
         return this.userServiceClient.getAllUsers();
     }
 }
