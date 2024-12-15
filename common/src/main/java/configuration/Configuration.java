@@ -1,5 +1,6 @@
 package configuration;
 
+//import com.user_service.api.ApiClient;
 import com.user_service.api.ApiClient;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
@@ -24,9 +25,11 @@ public class Configuration {
         setServiceUrl();
         getAccessToken();
     }
+
     private void setServiceUrl() {
-        userServiceUrl= "https://gorest.co.in/public/v2";
+        userServiceUrl = "https://gorest.co.in/public/v2";
     }
+
     private void getAccessToken() {
         accessToken = "Bearer " + testUtils.getAccessToken();
     }
@@ -34,12 +37,13 @@ public class Configuration {
     private ClientHttpResponse getAccessTokenForInterceptor(HttpRequest httpRequest, byte[] bytes, ClientHttpRequestExecution clientHttpRequestExecution) throws IOException {
         if (accessToken == null) {
             accessToken = "Bearer " + testUtils.getAccessToken();
-                    }
+        }
         HttpRequest authRequest = new HttpRequestWrapper(httpRequest);
         HttpHeaders headers = httpRequest.getHeaders();
         headers.add(HttpHeaders.AUTHORIZATION, accessToken);
         return clientHttpRequestExecution.execute(authRequest, bytes);
     }
+
     private ClientHttpResponse addRequestId(HttpRequest httpRequest, byte[] bytes, ClientHttpRequestExecution clientHttpRequestExecution) throws IOException {
         HttpRequest authRequest = new HttpRequestWrapper(httpRequest);
         HttpHeaders headers = httpRequest.getHeaders();
@@ -63,7 +67,8 @@ public class Configuration {
         restTemplate.setInterceptors(interceptors);
         return restTemplate;
     }
-    public ApiClient getVoConfigApiClient() {
+
+    public ApiClient getApiClient() {
         ApiClient apiClient = new ApiClient(createAuthorizedTemplate());
         apiClient.setBasePath(userServiceUrl);
         return apiClient;

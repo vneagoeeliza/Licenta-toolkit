@@ -25,9 +25,12 @@ public class Toolkit {
         }
         return toolkit;
     }
+
     public EntityGetter get() {
         return entityGetter;
     }
 
-    public EntityCreator create(){return entityCreator;}
+    public EntityCreator create() {
+        return entityCreator;
+    }
 }
