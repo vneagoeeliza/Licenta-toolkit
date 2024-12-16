@@ -22,4 +22,8 @@ public class UserServiceClient {
     public UserPojo createUser(UserPojo userPojo) {
         return userServiceApi.createUser(userPojo);
     }
+
+    public void deleteUser(String userId) {
+        userServiceApi.deleteUser(userId);
+    }
 }

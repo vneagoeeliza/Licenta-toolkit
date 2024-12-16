@@ -1,6 +1,7 @@
 package configuration;
 
 import clients.EntityCreator;
+import clients.EntityDelete;
 import clients.EntityGetter;
 import clients.UserServiceClient;
 
@@ -10,6 +11,7 @@ public class Toolkit {
     private UserServiceClient userServiceClient;
     public EntityGetter entityGetter;
     public EntityCreator entityCreator;
+    public EntityDelete entityDelete;
 
 
     public Toolkit() {
@@ -17,6 +19,7 @@ public class Toolkit {
         this.userServiceClient = new UserServiceClient(config);
         this.entityGetter = new EntityGetter(config, userServiceClient);
         this.entityCreator = new EntityCreator(config, userServiceClient);
+        this.entityDelete = new EntityDelete(config, userServiceClient);
     }
 
     public static Toolkit toolkit() {
@@ -32,5 +35,8 @@ public class Toolkit {
 
     public EntityCreator create() {
         return entityCreator;
+    }
+    public EntityDelete delete() {
+        return entityDelete;
     }
 }
