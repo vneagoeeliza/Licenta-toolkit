@@ -1,7 +1,10 @@
 package clients;
 
+import com.user_service.model.UserPojo;
+import org.springframework.http.ResponseEntity;
+
 public interface EntityCreateBuilder<T> {
-    T execute() throws InterruptedException;
+    ResponseEntity<UserPojo> execute() throws InterruptedException;
 
     @SuppressWarnings("unchecked")
     default <V extends Builder<?>, U extends EntityCreateBuilder<T>> U withOverride(final OverrideStatement<V> override) {
